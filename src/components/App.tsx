@@ -1,1 +1,3 @@
-export const App = () => <div>Hello world</div>
+import {Card} from "./Card";
+
+export const App = () => <Card>Hello world</Card>
