@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "noImplicitAny": true,
+        "strict": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "jsx": "react-jsx",
+        "allowJs": true,
+        "sourceMap": true,
+        "baseUrl": "./",
+    },
+    "include": [
+        "./src"
+    ],
+}
