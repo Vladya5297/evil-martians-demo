@@ -10,5 +10,5 @@ type Props = {
 }
 
 export const Card = ({children, className, style}: Props) => {
-    return <div style={style} className={cn(css.card, className)}>{children}</div>
+    return <div className={cn(css.card, className)} style={style}>{children}</div>
 }

@@ -1,0 +1,53 @@
+$padding: 12px;
+$border: 1px;
+$bg-color: #dbdbdb;
+
+.wrapper {
+    position: relative;
+    display: flex;
+}
+
+.label {
+    padding: 0 calc($padding + $border);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: $bg-color;
+    transition: height 0.2s, font-size 0.2s;
+    font-size: 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: text;
+
+    &>span {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}
+
+.input {
+    width: 100%;
+    border-radius: 8px;
+    outline: none;
+    padding: 22px 12px 6px 12px;
+    background-color: $bg-color;
+    border: $border solid transparent;
+    font-size: 16px;
+    
+    &:focus {
+        border-color:black;
+        background-color: unset;
+    }
+
+    &.filled,&:focus {
+        &+.label {
+            padding-top: 4px;
+            font-size: 12px;
+            height: 20px;
+            background-color: unset;   
+        }
+    }
+}
