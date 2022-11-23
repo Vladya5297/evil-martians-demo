@@ -12,13 +12,7 @@
         "baseUrl": "./",
         "paths": {
             "~/*": ["src/*"]
-        },
-        "plugins": [{
-            "name": "typescript-plugin-css-modules",
-            "options": {
-                "customMatcher": "\\.css$",
-            }
-        }]
+        }
     },
     "include": [
         "./src"

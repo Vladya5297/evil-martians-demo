@@ -2,14 +2,34 @@ $padding: 12px;
 $border-width: 1px;
 $border-radius: 8px;
 $font-size: 16px;
+$icon-offset: 30px;
 
 $bg-color: #e4e4e4;
 $second-color: #646464;
+
+@define-mixin decorative {
+    user-select: none;
+    pointer-events: none;
+}
 
 .wrapper {
     position: relative;
     
     display: flex;
+}
+
+.icon {
+    position: absolute;
+    left: 8px;
+
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    color: $second-color;
+
+    @mixin decorative;
 }
 
 .label {
@@ -30,6 +50,8 @@ $second-color: #646464;
     background-color: $bg-color;
     cursor: text;
     transition: height 0.2s, font-size 0.2s;
+
+    @mixin decorative;
 
     & > span {
         overflow: hidden;
@@ -52,6 +74,14 @@ $second-color: #646464;
     font-size: $font-size;
 
     background-color: $bg-color;
+
+    &.hasIcon {
+        padding-left: $icon-offset;
+
+        & + .label {
+            padding-left: calc($icon-offset + $border-width);
+        }
+    }
 
     &:focus {
         border-color: $second-color;

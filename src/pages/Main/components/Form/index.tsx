@@ -1,4 +1,5 @@
 import {useState} from "react"
+import {faEnvelope} from '@fortawesome/free-regular-svg-icons'
 
 import {Card} from "~/components/Card"
 import {Input} from "~/components/Input"
@@ -15,6 +16,7 @@ export const Form = () => {
                     value={value}
                     onChange={setValue}
                     type="email"
+                    icon={faEnvelope}
                 />
 
                 <Input
