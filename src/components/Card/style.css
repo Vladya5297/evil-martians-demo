@@ -1,9 +1,10 @@
 @import 'flex';
 
 .card {
-    @mixin column;
-    justify-content: center;
     padding: 20px 16px;
-    background-color: white;
     border-radius: 12px;
+
+    @mixin column;
+    
+    background-color: white;
 }

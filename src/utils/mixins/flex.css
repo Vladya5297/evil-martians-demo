@@ -3,8 +3,18 @@
     flex-direction: column;
 }
 
+@define-mixin column-inline {
+    display: inline-flex;
+    flex-direction: column;
+}
+
 @define-mixin row {
     display: flex;
+    flex-direction: row;
+}
+
+@define-mixin row-inline {
+    display: inline-flex;
     flex-direction: row;
 }
 

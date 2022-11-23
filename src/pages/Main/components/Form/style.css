@@ -1,0 +1,8 @@
+@import 'flex';
+
+.form {
+    margin: 0 24px;
+    
+    @mixin column;
+    gap: 20px;
+}
