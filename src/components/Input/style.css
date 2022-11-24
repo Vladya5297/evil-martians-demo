@@ -1,13 +1,16 @@
 @import 'ellipsis';
 
+/* variables */
+
 $padding: 12px;
 $border-width: 1px;
 $border-radius: 8px;
 $font-size: 16px;
-$icon-offset: 30px;
 
 $bg-color: #e4e4e4;
 $second-color: #646464;
+
+/* mixins */
 
 @define-mixin side-content $side {
     position: absolute;
@@ -18,10 +21,22 @@ $second-color: #646464;
     color: $second-color;
 }
 
+@define-mixin side-offset $side {
+    $offset: 30px;
+
+    padding-$(side): $offset;
+
+    & ~ .label {
+        padding-$(side): calc($offset + $border-width);
+    }
+}
+
 @define-mixin decorative {
     user-select: none;
     pointer-events: none;
 }
+
+/* base styles */
 
 .wrapper {
     position: relative;
@@ -35,14 +50,9 @@ $second-color: #646464;
     @mixin decorative;
 }
 
-.clear {
+.control {
     cursor: pointer;
-
-    @mixin side-content right;
-}
-
-.passwordToggler {
-    cursor: pointer;
+    visibility: hidden;
 
     @mixin side-content right;
 }
@@ -87,17 +97,17 @@ $second-color: #646464;
     font-size: $font-size;
 
     background-color: $bg-color;
+}
 
+/* use cases */
+
+.input {
     &.hasIcon {
-        padding-left: $icon-offset;
-
-        & ~ .label {
-            padding-left: calc($icon-offset + $border-width);
-        }
+        @mixin side-offset left;
     }
 
-    &.clearable {
-        padding-right: $icon-offset;
+    &.hasControl {
+        @mixin side-offset right;
     }
 
     &:focus {
@@ -114,6 +124,10 @@ $second-color: #646464;
             font-size: 12px;
 
             background-color: unset;
+        }
+
+        & ~ .control {
+            visibility: visible;
         }
     }
 }

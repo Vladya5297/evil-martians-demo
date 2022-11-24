@@ -1,17 +1,17 @@
-import {ChangeEvent, CSSProperties, ForwardedRef, forwardRef, HTMLInputTypeAttribute, useId} from "react";
+import {forwardRef, useId} from "react";
+import type {CSSProperties, ForwardedRef} from "react";
 import cn from "classnames";
 
-import {useToggle} from "~/utils/useToggle";
 import {Icon} from '~/components/Icon';
 import type {IconProp} from '~/components/Icon';
 
-import {Clear} from './Clear';
-import {PasswordToggler} from "./PasswordToggler";
+import {Password} from "./Password";
+import {Common} from "./Common";
 import css from './style.css';
 
-type InputTypeProp = 'text' | 'email' | 'password';
+export type InputTypeProp = 'text' | 'email' | 'password';
 
-type Props = {
+export type InputProps = {
     value: string;
     onChange: (value: string) => void;
     label: string;
@@ -23,52 +23,53 @@ type Props = {
     clearable?: boolean;
 }
 
-const isPassword = (type: InputTypeProp): boolean => type === 'password';
-
 export const Input = forwardRef((
-    {label, value, onChange, type = "text", className, style, placeholder, icon, clearable}: Props,
+    {
+        label,
+        value,
+        onChange,
+        type = "text",
+        className,
+        style,
+        placeholder,
+        icon,
+        clearable
+    }: InputProps,
     ref: ForwardedRef<HTMLInputElement>
 ) => {
-    const id = useId();
+    const inputId = useId();
 
-    const isPasswordType = isPassword(type);
-    const shouldShowClear = Boolean(clearable && value && !isPasswordType);
-    const shouldShowPasswordToggler = Boolean(isPasswordType && value);
+    const inputClassName = cn({
+        [css.hasIcon]: icon,
+    })
 
-    const [currentType, toggleType] = useToggle<InputTypeProp>([type, 'text']);
-    const isPasswordVisible = !isPassword(currentType);
-
-    const changeHandler = (event: ChangeEvent<HTMLInputElement>) => {onChange(event.target.value)};
-    const clearHandler = () => {onChange('')};
-
-    const inputClassName = cn(
-        css.input,
-        value && css.filled,
-        icon && css.hasIcon,
-        clearable && css.clearable,
-    )
+    const coreProps = {
+        inputId,
+        value,
+        onChange,
+        type,
+        placeholder,
+        className: inputClassName,
+        fref: ref,
+    }
 
     return (
         <div className={cn(css.wrapper, className)} style={style}>
-            <input
-                ref={ref}
-                id={id}
-                type={currentType}
-                value={value}
-                placeholder={placeholder}
-                className={inputClassName}
-                onChange={changeHandler}
-            />
+            {(() => {
+                switch (type) {
+                    case 'password':
+                        return <Password {...coreProps} />
+                    default:
+                        return <Common {...coreProps} clearable={clearable} />
+                }
+            })()}
 
-            {shouldShowClear && <Clear onClick={clearHandler} />}
-            {shouldShowPasswordToggler && <PasswordToggler onClick={toggleType} visible={isPasswordVisible} />}
-
-            <label className={css.label} htmlFor={id}>
+            <label className={css.label} htmlFor={inputId}>
                 <span>{label}</span>
             </label>
 
             {icon && (
-                <label className={css.icon} htmlFor={id}>
+                <label className={css.icon} htmlFor={inputId}>
                     <Icon icon={icon} />
                 </label>)
             }

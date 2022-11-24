@@ -2,8 +2,8 @@ import {faCircleXmark} from "@fortawesome/free-solid-svg-icons";
 
 import {Icon} from '~/components/Icon';
 
-import {preventFocusLost} from "./utils";
-import css from './style.css';
+import {preventFocusLost} from "../utils";
+import css from '../style.css';
 
 type Props = {
     onClick: () => void;
@@ -12,7 +12,7 @@ type Props = {
 export const Clear = ({onClick}: Props) => {
     return (
         <div
-            className={css.clear}
+            className={css.control}
             onClick={onClick}
             onMouseDown={preventFocusLost}
             title="clear input"
