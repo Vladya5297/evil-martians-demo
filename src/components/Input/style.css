@@ -41,6 +41,12 @@ $second-color: #646464;
     @mixin side-content right;
 }
 
+.passwordToggler {
+    cursor: pointer;
+
+    @mixin side-content right;
+}
+
 .label {
     position: absolute;
 

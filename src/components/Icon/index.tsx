@@ -5,8 +5,9 @@ export type IconProp = FontAwesomeIconProps['icon'];
 
 type Props = {
     icon: IconProp;
+    width?: number;
 }
 
-export const Icon = ({icon}: Props) => {
-    return <FontAwesomeIcon icon={icon} />;
+export const Icon = ({icon, width}: Props) => {
+    return <FontAwesomeIcon icon={icon} width={width} />;
 };

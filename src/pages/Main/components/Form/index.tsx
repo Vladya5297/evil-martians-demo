@@ -1,5 +1,6 @@
 import {useState} from "react"
-import {faEnvelope} from '@fortawesome/free-regular-svg-icons'
+import {faEnvelope} from '@fortawesome/free-solid-svg-icons'
+import {faKey} from '@fortawesome/free-solid-svg-icons'
 
 import {Card} from "~/components/Card"
 import {Input} from "~/components/Input"
@@ -27,6 +28,7 @@ export const Form = () => {
                     placeholder="***"
                     value={value}
                     onChange={setValue}
+                    icon={faKey}
                 />
             </div>
         </Card>
