@@ -1,3 +1,5 @@
+@import 'ellipsis';
+
 $padding: 12px;
 $border-width: 1px;
 $border-radius: 8px;
@@ -6,6 +8,15 @@ $icon-offset: 30px;
 
 $bg-color: #e4e4e4;
 $second-color: #646464;
+
+@define-mixin side-content $side {
+    position: absolute;
+    $(side): 8px;
+
+    align-self: center;
+
+    color: $second-color;
+}
 
 @define-mixin decorative {
     user-select: none;
@@ -19,17 +30,15 @@ $second-color: #646464;
 }
 
 .icon {
-    position: absolute;
-    left: 8px;
-
-    height: 100%;
-
-    display: flex;
-    align-items: center;
-
-    color: $second-color;
+    @mixin side-content left;
 
     @mixin decorative;
+}
+
+.clear {
+    cursor: pointer;
+
+    @mixin side-content right;
 }
 
 .label {
@@ -54,9 +63,7 @@ $second-color: #646464;
     @mixin decorative;
 
     & > span {
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+        @mixin ellipsis;
     }
 }
 
@@ -78,9 +85,13 @@ $second-color: #646464;
     &.hasIcon {
         padding-left: $icon-offset;
 
-        & + .label {
+        & ~ .label {
             padding-left: calc($icon-offset + $border-width);
         }
+    }
+
+    &.clearable {
+        padding-right: $icon-offset;
     }
 
     &:focus {
@@ -90,7 +101,7 @@ $second-color: #646464;
 
     &.filled,
     &:focus {
-        & + .label {
+        & ~ .label {
             height: 20px;
             padding-top: 4px;
 

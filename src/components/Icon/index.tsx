@@ -4,7 +4,7 @@ import type {FontAwesomeIconProps} from '@fortawesome/react-fontawesome';
 export type IconProp = FontAwesomeIconProps['icon'];
 
 type Props = {
-    icon: IconProp
+    icon: IconProp;
 }
 
 export const Icon = ({icon}: Props) => {

@@ -13,17 +13,20 @@ export const Form = () => {
             <div className={css.form}>
                 <Input
                     label="Email"
+                    type="email"
+                    placeholder="example@mail.com"
                     value={value}
                     onChange={setValue}
-                    type="email"
                     icon={faEnvelope}
+                    clearable
                 />
 
                 <Input
                     label="Password"
+                    type="password"
+                    placeholder="***"
                     value={value}
                     onChange={setValue}
-                    type="password"
                 />
             </div>
         </Card>

@@ -29,7 +29,7 @@ module.exports = {
                             importLoaders: 1,
                             modules: {
                                 mode: 'local',
-                                localIdentName: '[folder]__[local]__[hash]'
+                                localIdentName: '[folder]__[local]__[hash:base64:5]'
                             },
                         }
                     },
