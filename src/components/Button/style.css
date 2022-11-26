@@ -4,6 +4,7 @@
 /* variables */
 
 $size: 48px;
+$accent-color: #9a88ec;
 
 /* base styles */
 
@@ -38,7 +39,7 @@ $size: 48px;
 
 .button {
     &.action {
-        background-color: #9A88EC;
+        background-color: $accent-color;
         color: white;
         box-shadow: 0 1px 6px -3px black;    
     }
@@ -46,5 +47,18 @@ $size: 48px;
     &.secondary {
         background-color: white;
         box-shadow: 0 1px 6px -3px black;
+    }
+
+    &.link {
+        width: unset;
+        height: unset;
+        padding: unset;
+        border-radius: unset;
+
+        display: inline-flex;
+
+        background-color: transparent;
+        color: $accent-color;
+        text-decoration: underline;
     }
 }

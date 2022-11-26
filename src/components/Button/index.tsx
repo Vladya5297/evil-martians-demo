@@ -3,7 +3,7 @@ import {CSSProperties} from "react";
 import {Icon, IconProp} from "../Icon";
 import css from './style.css';
 
-export type ButtonVariantProp = 'action' | 'secondary'
+export type ButtonVariantProp = 'action' | 'secondary' | 'link';
 
 export type ButtonProps = {
     text?: string;

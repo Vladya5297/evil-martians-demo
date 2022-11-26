@@ -1,0 +1,9 @@
+@import 'flex';
+
+.row {
+    @mixin row;
+}
+
+.column {
+    @mixin column;
+}
