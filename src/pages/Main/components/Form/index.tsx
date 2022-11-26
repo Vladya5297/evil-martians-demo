@@ -1,9 +1,9 @@
 import {useState} from "react"
-import {faEnvelope} from '@fortawesome/free-solid-svg-icons'
-import {faKey} from '@fortawesome/free-solid-svg-icons'
+import {faEnvelope, faKey, faAngleRight} from '@fortawesome/free-solid-svg-icons'
 
 import {Card} from "~/components/Card"
 import {Input} from "~/components/Input"
+import {Button} from "~/components/Button"
 
 import css from './style.css';
 
@@ -30,6 +30,8 @@ export const Form = () => {
                     onChange={setValue}
                     icon={faKey}
                 />
+
+                <Button text="Sign in" icon={faAngleRight} />
             </div>
         </Card>
     );

@@ -1,0 +1,50 @@
+@import 'flex';
+@import 'ellipsis';
+
+/* variables */
+
+$size: 48px;
+
+/* base styles */
+
+.button {
+    height: $size;
+    min-width: $size;
+    padding: 0px 16px;
+    border: 0;
+    border-radius: calc($size / 2);
+
+    @mixin row;
+    @mixin center;
+    gap: 8px;
+
+    user-select: none;
+    cursor: pointer;
+    
+    &:hover {
+        filter: brightness(0.95);
+    }
+
+    &:active {
+        filter: brightness(0.85);
+    }
+
+    & > span {
+        @mixin ellipsis;
+    }
+}
+
+/* use cases */
+
+.button {
+    &.action {
+        background-color: #9A88EC;
+        color: white;
+        box-shadow: 0 1px 6px -3px black;    
+    }
+
+    &.secondary {
+        background-color: white;
+        box-shadow: 0 1px 6px -3px black;
+    }
+}

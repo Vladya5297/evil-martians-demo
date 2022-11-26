@@ -59,6 +59,10 @@ export const Input = forwardRef((
                 switch (type) {
                     case 'password':
                         return <Password {...coreProps} />
+                    /*
+                        place to extend input type view with custom components
+                        for example: "tel" with masked input, or "number" with proper styles
+                    */
                     default:
                         return <Common {...coreProps} clearable={clearable} />
                 }
@@ -69,9 +73,9 @@ export const Input = forwardRef((
             </label>
 
             {icon && (
-                <label className={css.icon} htmlFor={inputId}>
-                    <Icon icon={icon} />
-                </label>)
+                <div className={css.icon}>
+                    <Icon icon={icon} width={20} />
+                </div>)
             }
         </div>
     )

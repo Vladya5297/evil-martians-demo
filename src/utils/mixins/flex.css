@@ -19,6 +19,6 @@
 }
 
 @define-mixin center {
-    @mixin horizontal-center;
-    @mixin vertical-center;
+    justify-content: center;
+    align-items: center;
 }
