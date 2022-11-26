@@ -1,8 +1,8 @@
 @import 'flex';
 
-.form {
-    margin: 0 24px;
+.card {
+    height: 500px;
+    max-width: 400px;
     
-    @mixin column;
-    gap: 20px;
+    @mixin center;
 }

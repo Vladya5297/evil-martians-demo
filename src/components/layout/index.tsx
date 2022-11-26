@@ -7,14 +7,15 @@ type Props = {
     children: ReactNode;
     justifyContent?: CSSProperties['justifyContent'];
     alignItems?: CSSProperties['alignItems'];
+    gap?: CSSProperties['gap'];
     className?: string;
 }
 
-const Base = ({children, justifyContent, alignItems, className}: Props) => {
+const Base = ({children, justifyContent, alignItems, gap, className}: Props) => {
     return (
         <div
             className={className}
-            style={{justifyContent, alignItems}}
+            style={{justifyContent, alignItems, gap}}
         >
             {children}
         </div>

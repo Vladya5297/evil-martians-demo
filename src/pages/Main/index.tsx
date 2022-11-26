@@ -1,4 +1,8 @@
 import {Form} from './components/Form';
-import './style.css'
+import css from './style.css'
 
-export const Main = () => <Form />
+export const Main = () => {
+    return (
+        <Form className={css.content} />
+    );
+}

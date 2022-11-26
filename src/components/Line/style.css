@@ -1,0 +1,26 @@
+@import 'flex';
+
+/* variables */
+
+$bg-color: #cecaca;
+$color: #646464;
+
+/* base styles */
+
+.wrapper {
+    @mixin row;
+    @mixin center;
+}
+
+.line {
+    height: 1px;
+    flex: 1;
+
+    background-color: $bg-color;
+}
+
+.text {
+    margin: 0 4px;
+
+    color: $color;
+}

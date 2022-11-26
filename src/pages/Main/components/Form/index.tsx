@@ -1,18 +1,27 @@
 import {useState} from "react"
 import {faEnvelope, faKey, faAngleRight} from '@fortawesome/free-solid-svg-icons'
+import cn from 'classnames'
 
 import {Card} from "~/components/Card"
 import {Input} from "~/components/Input"
 import {Button} from "~/components/Button"
 
 import css from './style.css';
-import {Row} from "~/components/layout"
+import {Column, Row} from "~/components/layout"
+import {Line} from "~/components/Line"
 
-export const Form = () => {
+type Props = {
+    className?: string;
+}
+
+export const Form = ({className}: Props) => {
     const [value, setValue] = useState('');
+
     return (
-        <Card>
-            <div className={css.form}>
+        <Card className={cn(css.card, className)}>
+            <Column gap={20}>
+                <h2>Login</h2>
+
                 <Input
                     label="Email"
                     type="email"
@@ -37,7 +46,15 @@ export const Form = () => {
                 </Row>
 
                 <Button text="Sign in" icon={faAngleRight} />
-            </div>
+
+                <Line text="or" />
+
+                <Row justifyContent="space-evenly">
+                    <Button icon={faAngleRight} variant="secondary" />
+                    <Button icon={faAngleRight} variant="secondary" />
+                    <Button icon={faAngleRight} variant="secondary" />
+                </Row>
+            </Column>
         </Card>
     );
 }
