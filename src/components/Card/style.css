@@ -1,7 +1,7 @@
 @import 'flex';
 
 .card {
-    padding: 20px 16px;
+    padding: 16px;
     border-radius: 12px;
 
     @mixin column;

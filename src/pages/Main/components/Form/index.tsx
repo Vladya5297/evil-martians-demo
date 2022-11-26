@@ -1,6 +1,5 @@
 import {useState} from "react"
 import {faEnvelope, faKey, faAngleRight} from '@fortawesome/free-solid-svg-icons'
-import cn from 'classnames'
 
 import {Card} from "~/components/Card"
 import {Input} from "~/components/Input"
@@ -10,15 +9,11 @@ import css from './style.css';
 import {Column, Row} from "~/components/layout"
 import {Line} from "~/components/Line"
 
-type Props = {
-    className?: string;
-}
-
-export const Form = ({className}: Props) => {
+export const Form = () => {
     const [value, setValue] = useState('');
 
     return (
-        <Card className={cn(css.card, className)}>
+        <Card className={css.card}>
             <Column gap={20}>
                 <h2>Login</h2>
 
