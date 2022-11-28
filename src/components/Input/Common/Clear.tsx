@@ -1,6 +1,4 @@
-import {faCircleXmark} from "@fortawesome/free-solid-svg-icons";
-
-import {Icon} from '~/components/Icon';
+import CircleXmark from '~/components/Icon/circle-xmark.svg';
 
 import {preventFocusLost} from "../utils";
 import css from '../style.css';
@@ -11,13 +9,13 @@ type Props = {
 
 export const Clear = ({onClick}: Props) => {
     return (
-        <div
+        <button
             className={css.control}
             onClick={onClick}
             onMouseDown={preventFocusLost}
             title="clear input"
         >
-            <Icon icon={faCircleXmark} width={20} />
-        </div>
+            <CircleXmark />
+        </button>
     )
 };

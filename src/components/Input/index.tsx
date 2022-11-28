@@ -1,9 +1,6 @@
 import {forwardRef, useId} from "react";
-import type {CSSProperties, ForwardedRef} from "react";
+import type {ReactNode, CSSProperties, ForwardedRef} from "react";
 import cn from "classnames";
-
-import {Icon} from '~/components/Icon';
-import type {IconProp} from '~/components/Icon';
 
 import {Password} from "./Password";
 import {Common} from "./Common";
@@ -19,7 +16,7 @@ export type InputProps = {
     className?: string;
     style?: CSSProperties;
     placeholder?: string;
-    icon?: IconProp;
+    icon?: ReactNode;
     clearable?: boolean;
 }
 
@@ -72,11 +69,7 @@ export const Input = forwardRef((
                 <span>{label}</span>
             </label>
 
-            {icon && (
-                <div className={css.icon}>
-                    <Icon icon={icon} width={20} />
-                </div>)
-            }
+            {icon && <div className={css.icon}>{icon}</div>}
         </div>
     )
 });

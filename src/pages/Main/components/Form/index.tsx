@@ -1,14 +1,19 @@
 import {useState} from "react"
-import {faEnvelope, faKey, faAngleRight} from '@fortawesome/free-solid-svg-icons'
 
 import {Card} from "~/components/Card"
 import {Input} from "~/components/Input"
 import {Button} from "~/components/Button"
-
-import css from './style.css';
 import {Column, Row} from "~/components/layout"
 import {Line} from "~/components/Line"
 import {Text} from "~/components/Text"
+import IconAngleRight from '~/components/Icon/angle-right.svg';
+import IconFacebook from '~/components/Icon/facebook.svg';
+import IconTwitter from '~/components/Icon/twitter.svg';
+import IconGoogle from '~/components/Icon/google.svg';
+import Envelope from '~/components/Icon/envelope.svg';
+import Key from '~/components/Icon/key.svg';
+
+import css from './style.css';
 
 export const Form = () => {
     const [value, setValue] = useState('');
@@ -24,7 +29,7 @@ export const Form = () => {
                     placeholder="example@mail.com"
                     value={value}
                     onChange={setValue}
-                    icon={faEnvelope}
+                    icon={<Envelope />}
                     clearable
                 />
 
@@ -34,21 +39,21 @@ export const Form = () => {
                     placeholder="***"
                     value={value}
                     onChange={setValue}
-                    icon={faKey}
+                    icon={<Key />}
                 />
 
                 <Row justifyContent="flex-end">
                     <Button text="Forgot password?" variant="link" />
                 </Row>
 
-                <Button text="Sign in" icon={faAngleRight} />
+                <Button text="Sign in" icon={<IconAngleRight />} />
 
                 <Line text="or" />
 
                 <Row justifyContent="space-evenly">
-                    <Button icon={faAngleRight} variant="secondary" />
-                    <Button icon={faAngleRight} variant="secondary" />
-                    <Button icon={faAngleRight} variant="secondary" />
+                    <Button icon={<IconFacebook />} variant="icon" />
+                    <Button icon={<IconTwitter />} variant="icon" />
+                    <Button icon={<IconGoogle />} variant="icon" />
                 </Row>
             </Column>
         </Card>

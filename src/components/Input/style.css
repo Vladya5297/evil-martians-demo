@@ -1,3 +1,4 @@
+@import 'mixins/flex';
 @import 'mixins/ellipsis';
 
 /* variables */
@@ -11,8 +12,15 @@ $font-size: 16px;
 @define-mixin side-content $side {
     position: absolute;
     $(side): 4px;
-
     align-self: center;
+
+    height: 20px;
+    width: 20px;
+
+    display: flex;
+    @mixin center;
+
+    fill: var(--text-secondary);
 }
 
 @define-mixin side-offset $side {
@@ -49,6 +57,10 @@ $font-size: 16px;
 }
 
 .control {
+    padding: unset;
+    border: unset;
+    background-color: unset;
+
     cursor: pointer;
     visibility: hidden;
 

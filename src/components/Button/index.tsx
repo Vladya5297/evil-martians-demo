@@ -1,14 +1,14 @@
 import cn from "classnames";
-import {CSSProperties} from "react";
-import {Icon, IconProp} from "../Icon";
+import {CSSProperties, ReactNode} from "react";
+
 import css from './style.css';
 
-export type ButtonVariantProp = 'action' | 'secondary' | 'link';
+export type ButtonVariantProp = 'action' | 'icon' | 'link';
 
 export type ButtonProps = {
     text?: string;
     variant?: ButtonVariantProp;
-    icon?: IconProp;
+    icon?: ReactNode;
     className?: string;
     style?: CSSProperties;
 }
@@ -20,11 +20,7 @@ export const Button = ({text, icon, variant = 'action', className, style}: Butto
         <button className={buttonClassName} style={style}>
             {text && <span>{text}</span>}
 
-            {icon && (
-                <div className={css.icon}>
-                    <Icon icon={icon} />
-                </div>
-            )}
+            {icon}
         </button>
     );
 }

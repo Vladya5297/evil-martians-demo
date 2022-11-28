@@ -40,13 +40,17 @@ $size: 48px;
     &.action {
         background-color: var(--button-action-bg);
         color: var(--button-action-color);
+        fill: var(--button-action-color);
         box-shadow: 0 1px 6px -3px black;    
     }
 
-    &.secondary {
-        background-color: var(--button-secondary-bg);
+    &.icon {
+        padding: unset;
         border: 2px solid var(--border-primary);
+
+        background-color: var(--button-secondary-bg);
         color: var(--button-secondary-color);
+        fill: var(--button-secondary-color);
         box-shadow: 0 1px 6px -3px black;
     }
 
@@ -60,6 +64,7 @@ $size: 48px;
 
         background-color: transparent;
         color: var(--text-secondary);
+        fill: var(--text-secondary);
         text-decoration: underline;
     }
 }

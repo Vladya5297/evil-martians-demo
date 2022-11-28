@@ -1,7 +1,5 @@
-import {faEye} from "@fortawesome/free-solid-svg-icons";
-import {faEyeSlash} from "@fortawesome/free-solid-svg-icons";
-
-import {Icon} from '~/components/Icon';
+import Eye from '~/components/Icon/eye.svg';
+import EyeSlash from '~/components/Icon/eye-slash.svg';
 
 import {preventFocusLost} from "../utils";
 import css from '../style.css';
@@ -13,13 +11,13 @@ type Props = {
 
 export const PasswordToggler = ({visible, onClick}: Props) => {
     return (
-        <div
+        <button
             className={css.control}
             onClick={onClick}
             onMouseDown={preventFocusLost}
             title={visible ? 'hide password' : 'show password'}
         >
-            <Icon icon={visible ? faEyeSlash : faEye} width={20} />
-        </div>
+            {visible ? <EyeSlash /> : <Eye />}
+        </button>
     );
 };
