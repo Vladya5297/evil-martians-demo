@@ -1,3 +1,4 @@
+import {Text} from '../Text';
 import css from './style.css';
 
 type Props = {
@@ -10,7 +11,7 @@ export const Line = ({text, align = 'center'}: Props) => {
         <div className={css.wrapper} role="separator">
             {align !== 'left' && <div className={css.line} />}
 
-            {text && <span className={css.text}>{text}</span>}
+            {text && <Text className={css.text}>{text}</Text>}
 
             {align !== 'right' && <div className={css.line} />}
         </div>

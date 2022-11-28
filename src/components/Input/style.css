@@ -1,24 +1,18 @@
-@import 'ellipsis';
+@import 'mixins/ellipsis';
 
 /* variables */
 
 $padding: 12px;
-$border-width: 1px;
-$border-radius: 8px;
+$border-width: 2px;
 $font-size: 16px;
-
-$bg-color: #e4e4e4;
-$second-color: #646464;
 
 /* mixins */
 
 @define-mixin side-content $side {
     position: absolute;
-    $(side): 8px;
+    $(side): 4px;
 
     align-self: center;
-
-    color: $second-color;
 }
 
 @define-mixin side-offset $side {
@@ -27,7 +21,7 @@ $second-color: #646464;
     padding-$(side): $offset;
 
     & ~ .label {
-        padding-$(side): calc($offset + $border-width);
+        padding-$(side): $offset;
     }
 }
 
@@ -45,9 +39,7 @@ $second-color: #646464;
     
     display: flex;
 
-    &:hover {
-        filter: brightness(0.95);
-    }
+    color: var(--text-secondary);
 }
 
 .icon {
@@ -68,17 +60,14 @@ $second-color: #646464;
 
     width: 100%;
     height: 100%;
-    padding: 0 calc($padding + $border-width);
+    padding: 0 $padding;
     box-sizing: border-box;
-    border-radius: $border-radius;
 
     display: flex;
     align-items: center;
 
     font-size: $font-size;
-    color: $second-color;
     
-    background-color: $bg-color;
     cursor: text;
     transition: height 0.2s, font-size 0.2s;
 
@@ -96,13 +85,19 @@ $second-color: #646464;
         $padding
         calc($padding / 2)
         $padding;
-    border: $border-width solid transparent;
-    border-radius: $border-radius;
+    border: none;
+    border-bottom: $border-width solid var(--border-primary);
     outline: none;
 
     font-size: $font-size;
 
-    background-color: $bg-color;
+    background-color: transparent;
+    color: var(--text-primary);
+
+    &::placeholder {
+        color: var(--text-secondary);
+        visibility: hidden;
+    }
 }
 
 /* use cases */
@@ -117,8 +112,9 @@ $second-color: #646464;
     }
 
     &:focus {
-        border-color: $second-color;
-        background-color: unset;
+        &::placeholder {
+            visibility: visible;
+        }
     }
 
     &.filled,

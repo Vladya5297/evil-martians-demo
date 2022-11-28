@@ -1,10 +1,9 @@
-@import 'flex';
-@import 'ellipsis';
+@import 'mixins/flex';
+@import 'mixins/ellipsis';
 
 /* variables */
 
 $size: 48px;
-$accent-color: #9a88ec;
 
 /* base styles */
 
@@ -23,11 +22,11 @@ $accent-color: #9a88ec;
     cursor: pointer;
     
     &:hover {
-        filter: brightness(0.95);
+        filter: brightness(0.9);
     }
 
     &:active {
-        filter: brightness(0.85);
+        filter: brightness(0.8);
     }
 
     & > span {
@@ -39,13 +38,15 @@ $accent-color: #9a88ec;
 
 .button {
     &.action {
-        background-color: $accent-color;
-        color: white;
+        background-color: var(--button-action-bg);
+        color: var(--button-action-color);
         box-shadow: 0 1px 6px -3px black;    
     }
 
     &.secondary {
-        background-color: white;
+        background-color: var(--button-secondary-bg);
+        border: 2px solid var(--border-primary);
+        color: var(--button-secondary-color);
         box-shadow: 0 1px 6px -3px black;
     }
 
@@ -58,7 +59,7 @@ $accent-color: #9a88ec;
         display: inline-flex;
 
         background-color: transparent;
-        color: $accent-color;
+        color: var(--text-secondary);
         text-decoration: underline;
     }
 }

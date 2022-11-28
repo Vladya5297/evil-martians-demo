@@ -8,6 +8,7 @@ import {Button} from "~/components/Button"
 import css from './style.css';
 import {Column, Row} from "~/components/layout"
 import {Line} from "~/components/Line"
+import {Text} from "~/components/Text"
 
 export const Form = () => {
     const [value, setValue] = useState('');
@@ -15,7 +16,7 @@ export const Form = () => {
     return (
         <Card className={css.card}>
             <Column gap={20}>
-                <h2>Login</h2>
+                <Text.H2>Login</Text.H2>
 
                 <Input
                     label="Email"

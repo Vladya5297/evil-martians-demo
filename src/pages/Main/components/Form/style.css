@@ -1,4 +1,4 @@
-@import 'flex';
+@import 'mixins/flex';
 
 .card {
     height: 500px;

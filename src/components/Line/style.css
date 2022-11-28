@@ -1,9 +1,4 @@
-@import 'flex';
-
-/* variables */
-
-$bg-color: #cecaca;
-$color: #646464;
+@import 'mixins/flex';
 
 /* base styles */
 
@@ -13,14 +8,12 @@ $color: #646464;
 }
 
 .line {
-    height: 1px;
+    height: 2px;
     flex: 1;
 
-    background-color: $bg-color;
+    background-color: var(--border-primary);
 }
 
 .text {
     margin: 0 4px;
-
-    color: $color;
 }

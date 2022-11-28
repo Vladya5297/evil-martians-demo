@@ -1,0 +1,15 @@
+.text {
+    color: var(--text-primary);
+}
+
+.h1 {
+    font: var(--font-heading-h1)
+}
+
+.h2 {
+    font: var(--font-heading-h2)
+}
+
+.h3 {
+    font: var(--font-heading-h3)
+}
