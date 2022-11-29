@@ -1,5 +1,5 @@
-import cn from "classnames";
-import {CSSProperties, ReactNode} from "react";
+import cn from 'classnames';
+import type {CSSProperties, ReactNode} from 'react';
 
 import css from './style.css';
 
@@ -12,15 +12,17 @@ export type ButtonProps = {
     className?: string;
     style?: CSSProperties;
     title?: string;
-}
+    type?: 'submit' | 'button';
+};
 
 export const Button = ({
     text,
     icon,
     variant = 'action',
+    type = 'button',
     title,
     className,
-    style
+    style,
 }: ButtonProps) => {
     const buttonClassName = cn(css.button, css[variant], className);
 
@@ -30,10 +32,12 @@ export const Button = ({
             style={style}
             title={title}
             aria-label={text || title}
+            // eslint-disable-next-line react/button-has-type
+            type={type}
         >
             {text && <span>{text}</span>}
 
             {icon}
         </button>
     );
-}
+};

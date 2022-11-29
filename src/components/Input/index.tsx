@@ -1,10 +1,10 @@
-import {forwardRef, useId} from "react";
-import type {ReactNode, CSSProperties, ForwardedRef} from "react";
-import cn from "classnames";
+import {forwardRef, useId} from 'react';
+import type {ReactNode, CSSProperties, ForwardedRef} from 'react';
+import cn from 'classnames';
 
-import {Password} from "./Password";
-import {Common} from "./Common";
-import {Email} from "./Email";
+import {Password} from './Password';
+import {Common} from './Common';
+import {Email} from './Email';
 import css from './style.css';
 
 export type InputTypeProp = 'text' | 'email' | 'password';
@@ -29,7 +29,7 @@ export type CoreProps = {
      * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values
     */
     autoComplete?: string;
-}
+};
 
 export type InputProps = {
     label: string;
@@ -37,7 +37,7 @@ export type InputProps = {
     clearable?: boolean;
     className?: string;
     style?: CSSProperties;
-} & Omit<CoreProps, 'inputId' | 'fref'>
+} & Omit<CoreProps, 'inputId' | 'fref'>;
 
 export const Input = forwardRef((
     {
@@ -48,35 +48,35 @@ export const Input = forwardRef((
         style,
         ...props
     }: InputProps,
-    ref: ForwardedRef<HTMLInputElement>
+    ref: ForwardedRef<HTMLInputElement>,
 ) => {
     const inputId = useId();
 
     const inputClassName = cn({
         [css.hasIcon]: icon,
-    })
+    });
 
     const coreProps: CoreProps = {
         inputId,
         className: inputClassName,
         fref: ref,
-        ...props
-    }
+        ...props,
+    };
 
     return (
         <div className={cn(css.wrapper, className)} style={style}>
             {(() => {
                 switch (props.type) {
                     case 'password':
-                        return <Password {...coreProps} />
+                        return <Password {...coreProps} />;
                     case 'email':
-                        return <Email {...coreProps} clearable={clearable} />
+                        return <Email {...coreProps} clearable={clearable} />;
                     /*
                         Place to extend input type view with custom components
                         for example: "tel" with masked input, or "number" with proper styles
                     */
                     default:
-                        return <Common {...coreProps} clearable={clearable} />
+                        return <Common {...coreProps} clearable={clearable} />;
                 }
             })()}
 
@@ -86,5 +86,5 @@ export const Input = forwardRef((
 
             {icon && <div className={css.icon}>{icon}</div>}
         </div>
-    )
+    );
 });

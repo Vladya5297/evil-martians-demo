@@ -1,4 +1,4 @@
-import {CSSProperties, ReactNode} from "react"
+import type {CSSProperties, ReactNode} from 'react';
 import cn from 'classnames';
 
 import css from './style.css';
@@ -9,7 +9,7 @@ type Props = {
     alignItems?: CSSProperties['alignItems'];
     gap?: CSSProperties['gap'];
     className?: string;
-}
+};
 
 const Base = ({children, justifyContent, alignItems, gap, className}: Props) => {
     return (
@@ -19,17 +19,17 @@ const Base = ({children, justifyContent, alignItems, gap, className}: Props) => 
         >
             {children}
         </div>
-    )
-}
+    );
+};
 
 export const Row = (props: Props) => {
     const className = cn(css.row, props.className);
 
-    return <Base {...props} className={className} />
-}
+    return <Base {...props} className={className} />;
+};
 
 export const Column = (props: Props) => {
     const className = cn(css.column, props.className);
 
-    return <Base {...props} className={className} />
-}
+    return <Base {...props} className={className} />;
+};

@@ -1,7 +1,7 @@
-import type {ChangeEvent} from "react"
-import cn from "classnames";
+import type {ChangeEvent} from 'react';
+import cn from 'classnames';
 
-import {CoreProps} from "..";
+import type {CoreProps} from '..';
 import css from '../style.css';
 
 export const Core = ({
@@ -17,7 +17,7 @@ export const Core = ({
     autoComplete,
 }: CoreProps) => {
     const changeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-        onChange(event.target.value)
+        onChange(event.target.value);
     };
 
     const inputClassName = cn({
@@ -38,5 +38,5 @@ export const Core = ({
             autoComplete={autoComplete}
             className={inputClassName}
         />
-    )
-}
+    );
+};

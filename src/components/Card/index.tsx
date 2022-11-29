@@ -1,4 +1,4 @@
-import type {ReactNode, CSSProperties} from "react";
+import type {ReactNode, CSSProperties} from 'react';
 import cn from 'classnames';
 
 import css from './style.css';
@@ -6,9 +6,9 @@ import css from './style.css';
 type Props = {
     children: ReactNode;
     className?: string;
-    style?: CSSProperties
-}
+    style?: CSSProperties;
+};
 
 export const Card = ({children, className, style}: Props) => {
-    return <div className={cn(css.card, className)} style={style}>{children}</div>
-}
+    return <div className={cn(css.card, className)} style={style}>{children}</div>;
+};

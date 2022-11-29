@@ -1,10 +1,11 @@
 import {Text} from '../Text';
+
 import css from './style.css';
 
 type Props = {
     text?: string;
-    align?: 'left' | 'right' | 'center'
-}
+    align?: 'left' | 'right' | 'center';
+};
 
 export const Line = ({text, align = 'center'}: Props) => {
     return (
@@ -15,5 +16,5 @@ export const Line = ({text, align = 'center'}: Props) => {
 
             {align !== 'right' && <div className={css.line} />}
         </div>
-    )
-}
+    );
+};

@@ -1,11 +1,11 @@
-import {useState} from "react"
+import {useState} from 'react';
 
-import {Card} from "~/components/Card"
-import {Input} from "~/components/Input"
-import {Button} from "~/components/Button"
-import {Column, Row} from "~/components/layout"
-import {Line} from "~/components/Line"
-import {Text} from "~/components/Text"
+import {Card} from '~/components/Card';
+import {Input} from '~/components/Input';
+import {Button} from '~/components/Button';
+import {Column, Row} from '~/components/layout';
+import {Line} from '~/components/Line';
+import {Text} from '~/components/Text';
 import IconAngleRight from '~/components/Icon/angle-right.svg';
 import IconFacebook from '~/components/Icon/facebook.svg';
 import IconTwitter from '~/components/Icon/twitter.svg';
@@ -58,4 +58,4 @@ export const Form = () => {
             </Column>
         </Card>
     );
-}
+};
