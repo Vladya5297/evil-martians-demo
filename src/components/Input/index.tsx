@@ -4,33 +4,49 @@ import cn from "classnames";
 
 import {Password} from "./Password";
 import {Common} from "./Common";
+import {Email} from "./Email";
 import css from './style.css';
 
 export type InputTypeProp = 'text' | 'email' | 'password';
 
-export type InputProps = {
+/** Props that will be passed directly to the input element */
+export type CoreProps = {
+    inputId: string;
     value: string;
     onChange: (value: string) => void;
-    label: string;
+    fref?: ForwardedRef<HTMLInputElement>;
     type?: InputTypeProp;
-    className?: string;
-    style?: CSSProperties;
     placeholder?: string;
+    className?: string;
+    name?: string;
+    /**
+     * Defines view for virtual keyboards
+     * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode
+    */
+    inputMode?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
+    /**
+     * Look for available values:
+     * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values
+    */
+    autoComplete?: string;
+}
+
+export type InputProps = {
+    label: string;
     icon?: ReactNode;
     clearable?: boolean;
-}
+    className?: string;
+    style?: CSSProperties;
+} & Omit<CoreProps, 'inputId' | 'fref'>
 
 export const Input = forwardRef((
     {
         label,
-        value,
-        onChange,
-        type = "text",
+        icon,
+        clearable,
         className,
         style,
-        placeholder,
-        icon,
-        clearable
+        ...props
     }: InputProps,
     ref: ForwardedRef<HTMLInputElement>
 ) => {
@@ -40,24 +56,23 @@ export const Input = forwardRef((
         [css.hasIcon]: icon,
     })
 
-    const coreProps = {
+    const coreProps: CoreProps = {
         inputId,
-        value,
-        onChange,
-        type,
-        placeholder,
         className: inputClassName,
         fref: ref,
+        ...props
     }
 
     return (
         <div className={cn(css.wrapper, className)} style={style}>
             {(() => {
-                switch (type) {
+                switch (props.type) {
                     case 'password':
                         return <Password {...coreProps} />
+                    case 'email':
+                        return <Email {...coreProps} clearable={clearable} />
                     /*
-                        place to extend input type view with custom components
+                        Place to extend input type view with custom components
                         for example: "tel" with masked input, or "number" with proper styles
                     */
                     default:

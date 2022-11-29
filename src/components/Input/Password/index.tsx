@@ -3,8 +3,7 @@ import cn from "classnames";
 import {useToggle} from "~/utils/useToggle";
 
 import {Core} from "../Core";
-import type {CoreProps} from "../Core";
-import type {InputTypeProp} from "../index";
+import type {CoreProps, InputTypeProp} from "../index";
 import {PasswordToggler} from "./PasswordToggler";
 import css from '../style.css';
 

@@ -5,6 +5,13 @@
 
 $size: 48px;
 
+/* mixins */
+
+@define-mixin color $color {
+    color: $color;
+    fill: $color;
+}
+
 /* base styles */
 
 .button {
@@ -39,8 +46,7 @@ $size: 48px;
 .button {
     &.action {
         background-color: var(--button-action-bg);
-        color: var(--button-action-color);
-        fill: var(--button-action-color);
+        @mixin color var(--button-action-color);
         box-shadow: 0 1px 6px -3px black;    
     }
 
@@ -49,8 +55,7 @@ $size: 48px;
         border: 2px solid var(--border-primary);
 
         background-color: var(--button-secondary-bg);
-        color: var(--button-secondary-color);
-        fill: var(--button-secondary-color);
+        @mixin color var(--button-secondary-color);
         box-shadow: 0 1px 6px -3px black;
     }
 
@@ -63,8 +68,7 @@ $size: 48px;
         display: inline-flex;
 
         background-color: transparent;
-        color: var(--text-secondary);
-        fill: var(--text-secondary);
+        @mixin color var(--button-link-color);
         text-decoration: underline;
     }
 }

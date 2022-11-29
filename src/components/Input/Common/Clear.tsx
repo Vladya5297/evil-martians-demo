@@ -13,7 +13,7 @@ export const Clear = ({onClick}: Props) => {
             className={css.control}
             onClick={onClick}
             onMouseDown={preventFocusLost}
-            title="clear input"
+            title="Clear input"
         >
             <CircleXmark />
         </button>

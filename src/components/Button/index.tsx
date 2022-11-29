@@ -11,13 +11,26 @@ export type ButtonProps = {
     icon?: ReactNode;
     className?: string;
     style?: CSSProperties;
+    title?: string;
 }
 
-export const Button = ({text, icon, variant = 'action', className, style}: ButtonProps) => {
+export const Button = ({
+    text,
+    icon,
+    variant = 'action',
+    title,
+    className,
+    style
+}: ButtonProps) => {
     const buttonClassName = cn(css.button, css[variant], className);
 
     return (
-        <button className={buttonClassName} style={style}>
+        <button
+            className={buttonClassName}
+            style={style}
+            title={title}
+            aria-label={text || title}
+        >
             {text && <span>{text}</span>}
 
             {icon}

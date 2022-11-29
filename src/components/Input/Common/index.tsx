@@ -1,12 +1,13 @@
 import cn from "classnames";
 
-import {Core, CoreProps} from "../Core";
+import {Core} from "../Core";
 import {Clear} from "./Clear";
+import {CoreProps} from "..";
 import css from '../style.css';
 
-type Props = {clearable?: boolean} & CoreProps;
+export type CommonProps = {clearable?: boolean} & CoreProps;
 
-export const Common = ({clearable, ...props}: Props) => {
+export const Common = ({clearable, ...props}: CommonProps) => {
     const shouldShowClear = Boolean(clearable && props.value);
 
     const clearHandler = () => {

@@ -15,7 +15,7 @@ export const PasswordToggler = ({visible, onClick}: Props) => {
             className={css.control}
             onClick={onClick}
             onMouseDown={preventFocusLost}
-            title={visible ? 'hide password' : 'show password'}
+            title={visible ? 'Hide password' : 'Show password'}
         >
             {visible ? <EyeSlash /> : <Eye />}
         </button>

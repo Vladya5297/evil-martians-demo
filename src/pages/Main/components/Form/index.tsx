@@ -51,9 +51,9 @@ export const Form = () => {
                 <Line text="or" />
 
                 <Row justifyContent="space-evenly">
-                    <Button icon={<IconFacebook />} variant="icon" />
-                    <Button icon={<IconTwitter />} variant="icon" />
-                    <Button icon={<IconGoogle />} variant="icon" />
+                    <Button icon={<IconFacebook />} variant="icon" title="Enter with facebook" />
+                    <Button icon={<IconTwitter />} variant="icon" title="Enter with twitter" />
+                    <Button icon={<IconGoogle />} variant="icon" title="Enter with google" />
                 </Row>
             </Column>
         </Card>
