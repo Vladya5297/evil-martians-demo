@@ -6,12 +6,7 @@ import {Button} from '~/components/Button';
 import {Column, Row} from '~/components/layout';
 import {Line} from '~/components/Line';
 import {Text} from '~/components/Text';
-import IconAngleRight from '~/components/Icon/angle-right.svg';
-import IconFacebook from '~/components/Icon/facebook.svg';
-import IconTwitter from '~/components/Icon/twitter.svg';
-import IconGoogle from '~/components/Icon/google.svg';
-import Envelope from '~/components/Icon/envelope.svg';
-import Key from '~/components/Icon/key.svg';
+import {AngleRight, Facebook, Twitter, Google, Envelope, Key} from '~/components/Icon/icons';
 
 import css from './style.css';
 
@@ -29,7 +24,7 @@ export const Form = () => {
                     placeholder="example@mail.com"
                     value={value}
                     onChange={setValue}
-                    icon={<Envelope />}
+                    icon={Envelope}
                     clearable
                 />
 
@@ -39,21 +34,21 @@ export const Form = () => {
                     placeholder="***"
                     value={value}
                     onChange={setValue}
-                    icon={<Key />}
+                    icon={Key}
                 />
 
                 <Row justifyContent="flex-end">
                     <Button text="Forgot password?" variant="link" />
                 </Row>
 
-                <Button text="Sign in" icon={<IconAngleRight />} />
+                <Button text="Sign in" icon={AngleRight} title="Submit" type="submit" />
 
                 <Line text="or" />
 
                 <Row justifyContent="space-evenly">
-                    <Button icon={<IconFacebook />} variant="icon" title="Enter with facebook" />
-                    <Button icon={<IconTwitter />} variant="icon" title="Enter with twitter" />
-                    <Button icon={<IconGoogle />} variant="icon" title="Enter with google" />
+                    <Button icon={Facebook} variant="icon" title="Enter with facebook" />
+                    <Button icon={Twitter} variant="icon" title="Enter with twitter" />
+                    <Button icon={Google} variant="icon" title="Enter with google" />
                 </Row>
             </Column>
         </Card>

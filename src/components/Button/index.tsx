@@ -1,5 +1,8 @@
 import cn from 'classnames';
-import type {CSSProperties, ReactNode} from 'react';
+import type {CSSProperties} from 'react';
+
+import {Icon} from '../Icon';
+import type {SvgProp} from '../Icon';
 
 import css from './style.css';
 
@@ -8,7 +11,7 @@ export type ButtonVariantProp = 'action' | 'icon' | 'link';
 export type ButtonProps = {
     text?: string;
     variant?: ButtonVariantProp;
-    icon?: ReactNode;
+    icon?: SvgProp;
     className?: string;
     style?: CSSProperties;
     title?: string;
@@ -37,7 +40,7 @@ export const Button = ({
         >
             {text && <span>{text}</span>}
 
-            {icon}
+            {icon && <Icon svg={icon} size={20} />}
         </button>
     );
 };

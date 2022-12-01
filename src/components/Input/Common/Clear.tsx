@@ -1,4 +1,5 @@
-import CircleXmark from '~/components/Icon/circle-xmark.svg';
+import {Icon} from '~/components/Icon';
+import {CircleXmark} from '~/components/Icon/icons';
 
 import {preventFocusLost} from '../utils';
 import css from '../style.css';
@@ -16,7 +17,7 @@ export const Clear = ({onClick}: Props) => {
             title="Clear input"
             type="button"
         >
-            <CircleXmark />
+            <Icon svg={CircleXmark} />
         </button>
     );
 };

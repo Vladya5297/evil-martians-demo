@@ -1,0 +1,9 @@
+export {default as AngleRight} from './angle-right.svg';
+export {default as CircleXmark} from './circle-xmark.svg';
+export {default as Envelope} from './envelope.svg';
+export {default as EyeSlash} from './eye-slash.svg';
+export {default as Eye} from './eye.svg';
+export {default as Facebook} from './facebook.svg';
+export {default as Google} from './google.svg';
+export {default as Key} from './key.svg';
+export {default as Twitter} from './twitter.svg';

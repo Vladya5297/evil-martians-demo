@@ -1,5 +1,5 @@
-import Eye from '~/components/Icon/eye.svg';
-import EyeSlash from '~/components/Icon/eye-slash.svg';
+import {Icon} from '~/components/Icon';
+import {Eye, EyeSlash} from '~/components/Icon/icons';
 
 import {preventFocusLost} from '../utils';
 import css from '../style.css';
@@ -18,7 +18,7 @@ export const PasswordToggler = ({visible, onClick}: Props) => {
             title={visible ? 'Hide password' : 'Show password'}
             type="button"
         >
-            {visible ? <EyeSlash /> : <Eye />}
+            <Icon svg={visible ? EyeSlash : Eye} size={20} />
         </button>
     );
 };

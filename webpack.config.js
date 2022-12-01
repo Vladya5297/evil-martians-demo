@@ -1,10 +1,12 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const path = require("path");
-const webpack = require("webpack");
+/* eslint-disable @typescript-eslint/no-var-requires */
+const path = require('path');
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
-    entry: "./src/index.tsx",
-    mode: "development",
+    entry: './src/index.tsx',
+    mode: 'development',
     module: {
         rules: [
             {
@@ -14,7 +16,7 @@ module.exports = {
             },
             {
                 test: /\.html$/,
-                use: ["html-loader"]
+                use: ['html-loader'],
             },
             {
                 test: /\.css$/,
@@ -29,38 +31,38 @@ module.exports = {
                             importLoaders: 1,
                             modules: {
                                 mode: 'local',
-                                localIdentName: '[folder]__[local]__[hash:base64:5]'
+                                localIdentName: '[folder]__[local]__[hash:base64:5]',
                             },
-                        }
+                        },
                     },
                     {
-                        loader: 'postcss-loader'
-                    }
-                ]
+                        loader: 'postcss-loader',
+                    },
+                ],
             },
             {
                 test: /\.svg$/i,
-                issuer: /\.tsx$/,
+                issuer: /\.tsx?$/,
                 use: ['@svgr/webpack'],
             },
-        ]
+        ],
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
         alias: {
             '~': path.resolve(__dirname, 'src'),
-        }
+        },
     },
     output: {
-        path: path.resolve(__dirname, "build"),
-        filename: "index.js"
+        path: path.resolve(__dirname, 'build'),
+        filename: 'index.js',
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             template: './src/index.html',
-            filename: 'index.html'
-        })
+            filename: 'index.html',
+        }),
     ],
     devtool: 'inline-source-map',
     devServer: {
