@@ -9,11 +9,15 @@ import css from './style.css';
 export type ButtonVariantProp = 'action' | 'icon' | 'link';
 
 export type ButtonProps = {
+    /** Button inner text */
     text?: string;
+    /** View variant */
     variant?: ButtonVariantProp;
+    /** Button icon */
     icon?: SvgProp;
     className?: string;
     style?: CSSProperties;
+    /** Button hint text */
     title?: string;
     type?: 'submit' | 'button';
 };

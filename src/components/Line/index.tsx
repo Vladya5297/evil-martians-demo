@@ -3,7 +3,9 @@ import {Text} from '../Text';
 import css from './style.css';
 
 type Props = {
+    /** Line text */
     text?: string;
+    /** Line text position */
     align?: 'left' | 'right' | 'center';
 };
 

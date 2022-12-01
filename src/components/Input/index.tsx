@@ -17,10 +17,12 @@ export type CoreProps = {
     inputId: string;
     value: string;
     onChange: (value: string) => void;
+    /** Forwarder ref */
     fref?: ForwardedRef<HTMLInputElement>;
     type?: InputTypeProp;
     placeholder?: string;
     className?: string;
+    /** Input name in form */
     name?: string;
     /**
      * Defines view for virtual keyboards
@@ -35,8 +37,11 @@ export type CoreProps = {
 };
 
 export type InputProps = {
+    /** Front text in input */
     label: string;
+    /** Input icon */
     icon?: SvgProp;
+    /** Show the clear button */
     clearable?: boolean;
     className?: string;
     style?: CSSProperties;

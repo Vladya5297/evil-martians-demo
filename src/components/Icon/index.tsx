@@ -5,8 +5,9 @@ type SVGProps = React.SVGProps<SVGSVGElement>;
 export type SvgProp = React.FC<SVGProps>;
 
 export type IconProps = {
+    /** Svg component */
     svg: SvgProp;
-    /** Shorthand for width and height. */
+    /** Shorthand for width and height */
     size?: number;
 } & SVGProps;
 
