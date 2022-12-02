@@ -1,56 +1,33 @@
-import {useState} from 'react';
+import {useForm, FormProvider} from 'react-hook-form';
 
-import {Card} from '~/components/Card';
-import {Input} from '~/components/Input';
 import {Button} from '~/components/Button';
 import {Column, Row} from '~/components/layout';
-import {Line} from '~/components/Line';
-import {Text} from '~/components/Text';
-import {AngleRight, Facebook, Twitter, Google, Envelope, Key} from '~/components/Icon/icons';
 
-import css from './style.css';
+import {Email} from './Email';
+import {Password} from './Password';
+import {Submit} from './Submit';
+
+const defaultValues = {email: '', password: ''};
 
 export const Form = () => {
-    const [value, setValue] = useState('');
+    const methods = useForm({defaultValues});
+    const onSubmit = (data: unknown) => console.log(data);
 
     return (
-        <Card className={css.card}>
-            <Column gap={20}>
-                <Text.H2>Login</Text.H2>
+        <FormProvider {...methods}>
+            <form onSubmit={methods.handleSubmit(onSubmit)}>
+                <Column gap={20}>
+                    <Email />
 
-                <Input
-                    label="Email"
-                    type="email"
-                    placeholder="example@mail.com"
-                    value={value}
-                    onChange={setValue}
-                    icon={Envelope}
-                    clearable
-                />
+                    <Password />
 
-                <Input
-                    label="Password"
-                    type="password"
-                    placeholder="***"
-                    value={value}
-                    onChange={setValue}
-                    icon={Key}
-                />
+                    <Row justifyContent="flex-end">
+                        <Button text="Forgot password?" variant="link" />
+                    </Row>
 
-                <Row justifyContent="flex-end">
-                    <Button text="Forgot password?" variant="link" />
-                </Row>
-
-                <Button text="Sign in" icon={AngleRight} title="Submit" type="submit" />
-
-                <Line text="or" />
-
-                <Row justifyContent="space-evenly">
-                    <Button icon={Facebook} variant="icon" title="Enter with facebook" />
-                    <Button icon={Twitter} variant="icon" title="Enter with twitter" />
-                    <Button icon={Google} variant="icon" title="Enter with google" />
-                </Row>
-            </Column>
-        </Card>
+                    <Submit />
+                </Column>
+            </form>
+        </FormProvider>
     );
 };

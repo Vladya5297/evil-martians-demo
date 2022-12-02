@@ -20,6 +20,7 @@ export type ButtonProps = {
     /** Button hint text */
     title?: string;
     type?: 'submit' | 'button';
+    onClick?: () => void;
 };
 
 export const Button = ({
@@ -30,11 +31,13 @@ export const Button = ({
     title,
     className,
     style,
+    onClick,
 }: ButtonProps) => {
     const buttonClassName = cn(css.button, css[variant], className);
 
     return (
         <button
+            onClick={onClick}
             className={buttonClassName}
             style={style}
             title={title}

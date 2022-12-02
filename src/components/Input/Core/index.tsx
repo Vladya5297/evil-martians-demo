@@ -6,15 +6,11 @@ import css from '../style.css';
 
 export const Core = ({
     inputId,
-    value,
-    onChange,
-    type,
-    placeholder,
-    className,
     fref,
-    name,
-    inputMode,
-    autoComplete,
+    onChange,
+    className,
+    value,
+    ...props
 }: CoreProps) => {
     const changeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         onChange(event.target.value);
@@ -31,12 +27,8 @@ export const Core = ({
             ref={fref}
             value={value}
             onChange={changeHandler}
-            type={type}
-            name={name}
-            placeholder={placeholder}
-            inputMode={inputMode}
-            autoComplete={autoComplete}
             className={inputClassName}
+            {...props}
         />
     );
 };

@@ -1,5 +1,5 @@
 import {forwardRef, useId} from 'react';
-import type {CSSProperties, ForwardedRef} from 'react';
+import type {CSSProperties, ForwardedRef, FocusEvent} from 'react';
 import cn from 'classnames';
 
 import {Icon} from '~/components/Icon';
@@ -17,6 +17,7 @@ export type CoreProps = {
     inputId: string;
     value: string;
     onChange: (value: string) => void;
+    onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
     /** Forwarder ref */
     fref?: ForwardedRef<HTMLInputElement>;
     type?: InputTypeProp;
