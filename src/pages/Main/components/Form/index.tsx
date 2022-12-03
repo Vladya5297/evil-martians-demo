@@ -7,16 +7,21 @@ import {Email} from './Email';
 import {Password} from './Password';
 import {Submit} from './Submit';
 
-const defaultValues = {email: '', password: ''};
+export type FormValues = {
+    email: string;
+    password: string;
+};
+
+const defaultValues: FormValues = {email: '', password: ''};
 
 export const Form = () => {
     const methods = useForm({defaultValues});
-    const onSubmit = (data: unknown) => console.log(data);
+    const onSubmit = ({email, password}: FormValues) => alert(`Hello ${email} with password ${password} !`);
 
     return (
         <FormProvider {...methods}>
             <form onSubmit={methods.handleSubmit(onSubmit)}>
-                <Column gap={20}>
+                <Column gap={24}>
                     <Email />
 
                     <Password />

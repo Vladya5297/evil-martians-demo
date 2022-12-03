@@ -67,6 +67,14 @@ $font-size: 16px;
     @mixin side-content right;
 }
 
+.errorMessage {
+    position: absolute;
+    bottom: -20px;
+
+    color: var(--error-color);
+    font-size: 12px;
+}
+
 .label {
     position: absolute;
 
@@ -123,6 +131,10 @@ $font-size: 16px;
         @mixin side-offset right;
     }
 
+    &.error {
+        border-color: var(--error-color);
+    }
+
     &:focus {
         &::placeholder {
             visibility: visible;
@@ -132,8 +144,7 @@ $font-size: 16px;
     &.filled,
     &:focus {
         & ~ .label {
-            height: unset;
-            padding-top: 6px;
+            height: 20px;
 
             font-size: 12px;
 

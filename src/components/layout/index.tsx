@@ -9,13 +9,14 @@ type Props = {
     alignItems?: CSSProperties['alignItems'];
     gap?: CSSProperties['gap'];
     className?: string;
+    style?: CSSProperties;
 };
 
-const Base = ({children, justifyContent, alignItems, gap, className}: Props) => {
+const Base = ({children, justifyContent, alignItems, gap, className, style}: Props) => {
     return (
         <div
             className={className}
-            style={{justifyContent, alignItems, gap}}
+            style={{justifyContent, alignItems, gap, ...style}}
         >
             {children}
         </div>

@@ -44,6 +44,8 @@ export type InputProps = {
     icon?: SvgProp;
     /** Show the clear button */
     clearable?: boolean;
+    /** Set input into error state and show message if provided */
+    error?: boolean | string;
     className?: string;
     style?: CSSProperties;
 } & Omit<CoreProps, 'inputId' | 'fref'>;
@@ -53,6 +55,7 @@ export const Input = forwardRef((
         label,
         icon,
         clearable,
+        error,
         className,
         style,
         ...props
@@ -60,9 +63,11 @@ export const Input = forwardRef((
     ref: ForwardedRef<HTMLInputElement>,
 ) => {
     const inputId = useId();
+    const hasErrorMessage = typeof error === 'string';
 
     const inputClassName = cn({
         [css.hasIcon]: icon,
+        [css.error]: error,
     });
 
     const coreProps: CoreProps = {
@@ -94,6 +99,8 @@ export const Input = forwardRef((
             </label>
 
             {icon && <Icon className={css.icon} svg={icon} size={20} />}
+
+            {hasErrorMessage && <div className={css.errorMessage}>{error}</div>}
         </div>
     );
 });

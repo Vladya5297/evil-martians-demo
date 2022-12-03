@@ -5,7 +5,11 @@ import {Envelope} from '~/components/Icon/icons';
 
 export const Email = () => {
     const {control} = useFormContext();
-    const {field} = useController({control, name: 'email'});
+    const {field, fieldState} = useController({
+        control,
+        name: 'email',
+        rules: {required: 'This field is required'},
+    });
 
     return (
         <Input
@@ -15,6 +19,7 @@ export const Email = () => {
             autoComplete="username"
             icon={Envelope}
             clearable
+            error={fieldState.error?.message}
             {...field}
         />
     );

@@ -5,7 +5,11 @@ import {Key} from '~/components/Icon/icons';
 
 export const Password = () => {
     const {control} = useFormContext();
-    const {field} = useController({control, name: 'password'});
+    const {field, fieldState} = useController({
+        control,
+        name: 'password',
+        rules: {required: 'This field is required'},
+    });
 
     return (
         <Input
@@ -14,6 +18,7 @@ export const Password = () => {
             autoComplete="current-password"
             placeholder="***"
             icon={Key}
+            error={fieldState.error?.message}
             {...field}
         />
     );
