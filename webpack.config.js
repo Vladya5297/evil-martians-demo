@@ -7,6 +7,18 @@ const webpack = require('webpack');
 module.exports = {
     entry: './src/index.tsx',
     mode: 'development',
+    cache: true,
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: /node_modules/,
+                    name: 'vendor',
+                    chunks: 'initial',
+                },
+            },
+        },
+    },
     module: {
         rules: [
             {
@@ -55,13 +67,12 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: 'index.js',
+        filename: '[name].[contenthash].js',
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             template: './src/index.html',
-            filename: 'index.html',
         }),
     ],
     devtool: 'inline-source-map',
