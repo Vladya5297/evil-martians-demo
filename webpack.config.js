@@ -2,6 +2,7 @@
 const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
@@ -74,6 +75,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html',
         }),
+        new FaviconsWebpackPlugin('./src/images/favicon.svg'),
     ],
     devtool: 'inline-source-map',
     devServer: {
