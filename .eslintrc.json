@@ -62,6 +62,7 @@
         "max-classes-per-file": "off",
         "no-use-before-define": "off",
         "no-param-reassign": "off",
+        "global-require": "off",
         
         "indent": "off",
         "@typescript-eslint/indent": ["error", 4],
