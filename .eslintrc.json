@@ -77,6 +77,7 @@
 
         "@typescript-eslint/member-delimiter-style": "error",
         "@typescript-eslint/consistent-type-imports": ["error", {"prefer": "type-imports"}],
-        "@typescript-eslint/ban-ts-comment": "off"
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-var-requires": "off"
     }
 }

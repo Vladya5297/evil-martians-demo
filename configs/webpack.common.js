@@ -1,14 +1,13 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-const webpack = require('webpack');
+
+const APP_DIR = path.resolve(__dirname, '../src');
+const BUILD_DIR = path.resolve(__dirname, '../build');
 
 module.exports = {
-    entry: './src/index.tsx',
-    mode: 'development',
-    cache: true,
+    entry: path.join(APP_DIR, 'index.tsx'),
     optimization: {
         splitChunks: {
             cacheGroups: {
@@ -63,22 +62,17 @@ module.exports = {
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
         alias: {
-            '~': path.resolve(__dirname, 'src'),
+            '~': APP_DIR,
         },
     },
     output: {
-        path: path.resolve(__dirname, 'build'),
+        path: BUILD_DIR,
         filename: '[name].[contenthash].js',
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-            template: './src/index.html',
+            template: path.join(APP_DIR, 'index.html'),
         }),
-        new FaviconsWebpackPlugin('./src/images/favicon.svg'),
+        new FaviconsWebpackPlugin(path.join(APP_DIR, 'images/favicon.svg')),
     ],
-    devtool: 'inline-source-map',
-    devServer: {
-        port: 3000,
-    },
 };
