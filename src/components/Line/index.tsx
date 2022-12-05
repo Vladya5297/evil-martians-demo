@@ -2,14 +2,14 @@ import {Text} from '../Text';
 
 import css from './style.css';
 
-type Props = {
+export type LineProps = {
     /** Line text */
     text?: string;
     /** Line text position */
     align?: 'left' | 'right' | 'center';
 };
 
-export const Line = ({text, align = 'center'}: Props) => {
+export const Line = ({text, align = 'center'}: LineProps) => {
     return (
         <div className={css.wrapper} role="separator">
             {align !== 'left' && <div className={css.line} />}

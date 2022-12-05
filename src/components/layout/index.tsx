@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import css from './style.css';
 
-type Props = {
+export type Props = {
     children: ReactNode;
     justifyContent?: CSSProperties['justifyContent'];
     alignItems?: CSSProperties['alignItems'];

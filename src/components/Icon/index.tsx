@@ -11,7 +11,7 @@ export type IconProps = {
     size?: number;
 } & SVGProps;
 
-export const Icon = ({svg: Tag, size, ...props}: IconProps) => {
+export const Icon = React.memo(({svg: Tag, size, ...props}: IconProps) => {
     return (
         <Tag
             aria-hidden="true"
@@ -21,4 +21,4 @@ export const Icon = ({svg: Tag, size, ...props}: IconProps) => {
             {...props}
         />
     );
-};
+});
