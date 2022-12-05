@@ -1,18 +1,19 @@
 :root {
-    --background-primary: #1b1b1b;
-    --background-secondary: #343434;
+    --background-primary: #0a1929;
+    --background-secondary: #001e3c;
     --border-primary: #858585;
 
     --text-primary: #ffffff;
     --text-secondary: #bbbbbb;
 
+    --font-text: normal 16px sans-serif;
     --font-heading-h1: 600 40px sans-serif;
     --font-heading-h2: 500 32px sans-serif;
     --font-heading-h3: 300 28px sans-serif;
 
     --button-action-bg: #ffffff;
     --button-action-color: #1b1b1b;
-    --button-secondary-bg: #4e4e4e;
+    --button-secondary-bg: #001e3c;
     --button-secondary-color: #ffffff;
     --button-link-color: #bbbbbb;
 

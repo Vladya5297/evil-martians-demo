@@ -1,5 +1,6 @@
 .text {
     color: var(--text-primary);
+    font: var(--font-text);
 }
 
 .h1 {
