@@ -3,7 +3,7 @@
     --background-secondary: #001e3c;
     --border-primary: #858585;
 
-    --text-primary: #ffffff;
+    --text-primary: #dddddd;
     --text-secondary: #bbbbbb;
 
     --font-text: normal 16px sans-serif;
@@ -11,10 +11,10 @@
     --font-heading-h2: 500 32px sans-serif;
     --font-heading-h3: 300 28px sans-serif;
 
-    --button-action-bg: #ffffff;
+    --button-action-bg: #dddddd;
     --button-action-color: #1b1b1b;
     --button-secondary-bg: #001e3c;
-    --button-secondary-color: #ffffff;
+    --button-secondary-color: #dddddd;
     --button-link-color: #bbbbbb;
 
     --error-color: #f44336;
