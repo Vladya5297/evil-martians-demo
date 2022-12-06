@@ -3,7 +3,8 @@
     "scripts": {
         "start": "webpack serve --config=./configs/webpack.dev.js",
         "build": "webpack --config=./configs/webpack.prod.js",
-        "lint": "eslint ./src"
+        "lint": "eslint ./src",
+        "deploy": "gh-pages -d build"
     },
     "author": "Vladya5297",
     "dependencies": {
@@ -26,6 +27,7 @@
         "eslint-plugin-react-hooks": "^4.6.0",
         "favicons": "^7.0.2",
         "favicons-webpack-plugin": "^6.0.0",
+        "gh-pages": "^4.0.0",
         "html-loader": "^4.2.0",
         "html-webpack-plugin": "^5.5.0",
         "postcss-css-reset": "^1.0.2",
